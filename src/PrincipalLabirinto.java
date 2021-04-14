@@ -7,6 +7,9 @@ public class PrincipalLabirinto {
 		
 		System.out.println("Informa o nome do arquivo a ser lido: ");
 		Labirinto.carregaLabirinto(entrada.next());
+		
+		
+		
 	}
 
 }

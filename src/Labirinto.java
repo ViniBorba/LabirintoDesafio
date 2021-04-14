@@ -5,6 +5,7 @@ import java.io.IOException;
 
 public class Labirinto {
 	
+	//metodo para ler arquivo e criar array do labirinto
 	public static char[][] carregaLabirinto(String fileName){
 		char[][] arrayDoLabirinto = null;
 		
@@ -20,7 +21,7 @@ public class Labirinto {
 			
 			arrayDoLabirinto = new char[linha][coluna];//coloca linhas e colunas no array
 			
-			line = in.readLine();
+			line = in.readLine();//proxima linha
 			//preencher array com os dados do fileName
 			while(line != null) {
 				for(int lineFor = 0; lineFor < arrayDoLabirinto.length; lineFor++) {
@@ -36,9 +37,31 @@ public class Labirinto {
 			System.out.println("Arquivo não encontrado");
 		} catch (IOException e) {
 			System.out.println("Erro na leitura do arquivo");
+		} catch (StringIndexOutOfBoundsException a) {
+			System.out.println("Erro ao tentar inserir caracteres no Array");
+		} catch (NumberFormatException e) {
+			System.out.println("Erro em pegar a quantia de linhas e colunas");
+		} catch (NullPointerException e) {
+			System.out.println("Erro ao tentar inserir caracteres no Array");
 		}
 		
 		return arrayDoLabirinto;
 	}
+	
+	//metodo para vereficar o caminho no labirinto
+	public static boolean labirinto(char[][] arrayDoLabirinto) throws IllegalArgumentException {
+		if(arrayDoLabirinto == null) {
+			//lemnrar de subcrever o erro para tratar a saida
+			throw new IllegalArgumentException();
+		}
+		return Labirinto.labirinto(arrayDoLabirinto, 0, 0);
+	}
+	private static boolean labirinto(char[][] arrayDoLabirinto, int linha, int coluna) {
+		//verificar se tem caminho aberto
+		return true;
+		
+	}
+	
+	
 
 }
