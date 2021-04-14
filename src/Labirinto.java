@@ -20,13 +20,14 @@ public class Labirinto {
 			
 			arrayDoLabirinto = new char[linha][coluna];//coloca linhas e colunas no array
 			
+			line = in.readLine();
 			//preencher array com os dados do fileName
 			while(line != null) {
 				for(int lineFor = 0; lineFor < arrayDoLabirinto.length; lineFor++) {
 					for(int column = 0; column < arrayDoLabirinto[lineFor].length; column++ ) {
 						arrayDoLabirinto[lineFor][column] = line.charAt(column);//colocar char no array
 					}
-					in.readLine();//ler proxima linha
+					line = in.readLine();//ler proxima linha
 				}
 			}
 			
