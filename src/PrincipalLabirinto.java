@@ -6,9 +6,9 @@ public class PrincipalLabirinto {
 		Scanner entrada = new Scanner(System.in);
 		
 		System.out.println("Informa o nome do arquivo a ser lido: ");
-		Labirinto.carregaLabirinto(entrada.next());
+		//Labirinto.carregaLabirinto(entrada.next());
 		
-		
+		System.out.println(Labirinto.labirinto(Labirinto.carregaLabirinto(entrada.next())));
 		
 	}
 

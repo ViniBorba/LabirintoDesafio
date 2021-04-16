@@ -64,7 +64,7 @@ public class Labirinto {
 		
 		//verificar se tem caminho aberto
 		//Para baixo d DOWN
-		if(linha +1 < arrayDoLabirinto.length && arrayDoLabirinto[linha + 1][coluna] == ' ') {
+		if(linha +1 < arrayDoLabirinto.length && arrayDoLabirinto[linha + 1][coluna] == ' ' || arrayDoLabirinto[linha + 1][coluna] == 'D') {
 			//verefica se não é D
 			if(arrayDoLabirinto[linha +1][coluna] == 'D'){
 				return true;
@@ -75,7 +75,7 @@ public class Labirinto {
 		}
 		
 		//para direita r RIGHT
-		if(coluna +1 < arrayDoLabirinto[linha].length && arrayDoLabirinto[linha][coluna + 1] == ' ') {
+		if(coluna +1 < arrayDoLabirinto[linha].length && arrayDoLabirinto[linha][coluna + 1] == ' ' || arrayDoLabirinto[linha][coluna + 1] == 'D') {
 			if(arrayDoLabirinto[linha][coluna + 1] == 'D') {
 				return true;
 			} else {
@@ -86,7 +86,7 @@ public class Labirinto {
 
 		
 		//para cima u UP
-		if(linha -1 >= 0 && arrayDoLabirinto[linha -1][coluna] == ' ' || arrayDoLabirinto[linha -1][coluna] == 'd' ) {
+		if(linha -1 >= 0 && arrayDoLabirinto[linha -1][coluna] == ' ' || arrayDoLabirinto[linha -1][coluna] == 'd' || arrayDoLabirinto[linha -1][coluna] == 'D') {
 			if(arrayDoLabirinto[linha -1][coluna] == 'D') {
 				return true;
 			} else {
@@ -96,7 +96,7 @@ public class Labirinto {
 		}
 		
 		//para esquerda l LEFT acho que não precisa do ' ' nem do if do D, pq para left sempre vai ter r ou u ou 
-		if(coluna -1 >= 0 && arrayDoLabirinto[linha][coluna -1] == ' ' || arrayDoLabirinto[linha][coluna -1] == 'r' || arrayDoLabirinto[linha][coluna -1] == 'u')
+		if(coluna -1 >= 0 && arrayDoLabirinto[linha][coluna -1] == ' ' || arrayDoLabirinto[linha][coluna -1] == 'r' || arrayDoLabirinto[linha][coluna -1] == 'u' || arrayDoLabirinto[linha][coluna -1] == 'D')
 			if(arrayDoLabirinto[linha][coluna -1] == 'D') {
 				return true;
 			} else {
