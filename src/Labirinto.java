@@ -57,8 +57,55 @@ public class Labirinto {
 		return Labirinto.labirinto(arrayDoLabirinto, 0, 0);
 	}
 	private static boolean labirinto(char[][] arrayDoLabirinto, int linha, int coluna) {
+		//Verefica se encntrou a letra D
+		//if(arrayDoLabirinto[linha][coluna] == 'D') {
+			//return true;
+		//} else 
+		
 		//verificar se tem caminho aberto
-		return true;
+		//Para baixo d DOWN
+		if(linha +1 < arrayDoLabirinto.length && arrayDoLabirinto[linha + 1][coluna] == ' ') {
+			//verefica se não é D
+			if(arrayDoLabirinto[linha +1][coluna] == 'D'){
+				return true;
+			} else {
+				arrayDoLabirinto[linha + 1][coluna] = 'd';
+				return labirinto(arrayDoLabirinto, linha +1, coluna);
+			}
+		}
+		
+		//para direita r RIGHT
+		if(coluna +1 < arrayDoLabirinto[linha].length && arrayDoLabirinto[linha][coluna + 1] == ' ') {
+			if(arrayDoLabirinto[linha][coluna + 1] == 'D') {
+				return true;
+			} else {
+				arrayDoLabirinto[linha][coluna +1] = 'r';
+				return labirinto(arrayDoLabirinto, linha, coluna +1);
+			}
+		}
+
+		
+		//para cima u UP
+		if(linha -1 >= 0 && arrayDoLabirinto[linha -1][coluna] == ' ' || arrayDoLabirinto[linha -1][coluna] == 'd' ) {
+			if(arrayDoLabirinto[linha -1][coluna] == 'D') {
+				return true;
+			} else {
+				arrayDoLabirinto[linha -1][coluna] = 'u';
+				return labirinto(arrayDoLabirinto, linha -1, coluna);
+			}
+		}
+		
+		//para esquerda l LEFT acho que não precisa do ' ' nem do if do D, pq para left sempre vai ter r ou u ou 
+		if(coluna -1 >= 0 && arrayDoLabirinto[linha][coluna -1] == ' ' || arrayDoLabirinto[linha][coluna -1] == 'r' || arrayDoLabirinto[linha][coluna -1] == 'u')
+			if(arrayDoLabirinto[linha][coluna -1] == 'D') {
+				return true;
+			} else {
+				arrayDoLabirinto[linha][coluna -1] = 'l';
+				return labirinto(arrayDoLabirinto, linha, coluna -1);
+			}
+		
+		//se não entrou em nem um if é pq é falso	
+		return false;
 		
 	}
 	
