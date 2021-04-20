@@ -10,6 +10,8 @@ public class PrincipalLabirinto {
 		
 		System.out.println(Labirinto.labirinto(Labirinto.carregaLabirinto(entrada.next())));
 		
+		//Criar arquivo com o resultado
+		
 	}
 
 }
