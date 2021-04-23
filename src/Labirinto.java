@@ -1,7 +1,12 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.swing.plaf.synth.SynthScrollBarUI;
 
 public class Labirinto {
 	
@@ -119,7 +124,37 @@ public class Labirinto {
 		return false;
 	}
 	
-	public static void imprimeArquivo(boolean labirinto) {
+	public static void imprimeArquivo(boolean labirinto, char[][] arrayDoLabirinto) {
+		//Cria um arquivo
+		File arquivoCriado = new File("arquivoCriado.txt");
+		
+		try {
+			//Escreve no ARQUIVO
+			FileWriter fr = new FileWriter(arquivoCriado);
+			
+			//Classe para printar no arquivo
+			PrintWriter escrever = new PrintWriter (fr);
+			
+			//if(labirinto) {
+				//escrever.println("Existe um caminho para o labirinto");
+			//} else {
+				//escrever.println("Não existe um caminho para o labirinto");
+			//}
+			
+			//Usando ternario
+			escrever.println(labirinto ? "Existe um caminho para o labirinto" : "Não existe um caminho para o labirinto"); 
+			
+			for(int linha = 0; linha < arrayDoLabirinto.length; linha++) {
+				
+			}
+
+		} catch (IOException e) {
+			//e.printStackTrace();
+			System.out.println("Erro ao escrever arquivo");
+		}
+		
+
+		
 		
 	}
 
