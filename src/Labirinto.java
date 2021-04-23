@@ -144,10 +144,18 @@ public class Labirinto {
 			//Usando ternario
 			escrever.println(labirinto ? "Existe um caminho para o labirinto" : "Não existe um caminho para o labirinto"); 
 			
+			escrever.println("\nO labirinto usado no teste foi o seguinte\n");
+			
 			for(int linha = 0; linha < arrayDoLabirinto.length; linha++) {
-				
+				for(int coluna = 0; coluna < arrayDoLabirinto[linha].length; coluna++) {
+					if(arrayDoLabirinto[linha][coluna] == ' ') {
+						arrayDoLabirinto[linha][coluna] = '*';
+					}
+					escrever.print(arrayDoLabirinto[linha][coluna]);
+				}
+				escrever.println();
 			}
-
+			escrever.close();//fechar o arquivo
 		} catch (IOException e) {
 			//e.printStackTrace();
 			System.out.println("Erro ao escrever arquivo");

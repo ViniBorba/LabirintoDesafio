@@ -7,10 +7,17 @@ public class PrincipalLabirinto {
 		
 		System.out.println("Informa o nome do arquivo a ser lido: ");
 		//Labirinto.carregaLabirinto(entrada.next());
+		String nomeDoArquivo = entrada.next();
 		
-		System.out.println(Labirinto.labirinto(Labirinto.carregaLabirinto(entrada.next())));
+		//System.out.println(Labirinto.labirinto(Labirinto.carregaLabirinto(nomeDoArquivo)));
+		
+		boolean aux;
+		aux = Labirinto.labirinto(Labirinto.carregaLabirinto(nomeDoArquivo));
+		
+		//System.out.println(aux);
 		
 		//Criar arquivo com o resultado
+		Labirinto.imprimeArquivo(Labirinto.labirinto(Labirinto.carregaLabirinto(nomeDoArquivo)), Labirinto.carregaLabirinto(nomeDoArquivo));
 		
 	}
 
