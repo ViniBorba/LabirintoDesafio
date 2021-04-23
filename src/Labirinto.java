@@ -49,10 +49,12 @@ public class Labirinto {
 	}
 	
 	//metodo para vereficar o caminho no labirinto
-	public static boolean labirinto(char[][] arrayDoLabirinto) throws IllegalArgumentException {
+	public static boolean labirinto(char[][] arrayDoLabirinto) throws IllegalArgumentException, PrimeiroCaractereInvalido {
 		if(arrayDoLabirinto == null) {
-			//lemnrar de subcrever o erro para tratar a saida
 			throw new IllegalArgumentException();
+		}
+		if(arrayDoLabirinto[0][0] != ' ') {
+			throw new PrimeiroCaractereInvalido();
 		}
 		return Labirinto.labirinto(arrayDoLabirinto, 0, 0);
 	}
@@ -89,14 +91,12 @@ public class Labirinto {
 				return labirinto(arrayDoLabirinto, linha +1, coluna);			
 		}
 		
-		
 		//para direita r RIGHT
 		if(coluna +1 < arrayDoLabirinto[linha].length && arrayDoLabirinto[linha][coluna + 1] == ' ') {
 				arrayDoLabirinto[linha][coluna +1] = 'r';
 				return labirinto(arrayDoLabirinto, linha, coluna +1);
 		}
 
-		
 		//para cima u UP
 		if(linha -1 >= 0 && arrayDoLabirinto[linha -1][coluna] == ' ' || arrayDoLabirinto[linha -1][coluna] == 'd' || arrayDoLabirinto[linha -1][coluna] == 'r') {
 				arrayDoLabirinto[linha -1][coluna] = 'u';
@@ -119,6 +119,8 @@ public class Labirinto {
 		return false;
 	}
 	
-	
+	public static void imprimeArquivo(boolean labirinto) {
+		
+	}
 
 }
