@@ -91,33 +91,43 @@ public class Labirinto {
 		
 		//verificar se tem caminho aberto
 		//Para baixo d DOWN
-		if(linha +1 < arrayDoLabirinto.length && arrayDoLabirinto[linha + 1][coluna] == ' ') {
-				arrayDoLabirinto[linha + 1][coluna] = 'd';
-				return labirinto(arrayDoLabirinto, linha +1, coluna);			
+		if(linha +1 < arrayDoLabirinto.length) {
+			if(arrayDoLabirinto[linha + 1][coluna] == ' ') {
+					arrayDoLabirinto[linha + 1][coluna] = 'd';
+					return labirinto(arrayDoLabirinto, linha +1, coluna);			
+			}
 		}
 		
 		//para direita r RIGHT
-		if(coluna +1 < arrayDoLabirinto[linha].length && arrayDoLabirinto[linha][coluna + 1] == ' ') {
-				arrayDoLabirinto[linha][coluna +1] = 'r';
-				return labirinto(arrayDoLabirinto, linha, coluna +1);
+		if(coluna +1 < arrayDoLabirinto[linha].length) {
+			if(arrayDoLabirinto[linha][coluna + 1] == ' ') {
+					arrayDoLabirinto[linha][coluna +1] = 'r';
+					return labirinto(arrayDoLabirinto, linha, coluna +1);
+			}
 		}
 
 		//para cima u UP
-		if(linha -1 >= 0 && arrayDoLabirinto[linha -1][coluna] == ' ' || arrayDoLabirinto[linha -1][coluna] == 'd' || arrayDoLabirinto[linha -1][coluna] == 'r') {
-				arrayDoLabirinto[linha -1][coluna] = 'u';
-				return labirinto(arrayDoLabirinto, linha -1, coluna);
+		if(linha -1 >= 0) {
+			if(arrayDoLabirinto[linha -1][coluna] == ' ' || arrayDoLabirinto[linha -1][coluna] == 'd' || arrayDoLabirinto[linha -1][coluna] == 'r') {
+					arrayDoLabirinto[linha -1][coluna] = 'u';
+					return labirinto(arrayDoLabirinto, linha -1, coluna);
+			}
 		}
 		
 		//para esquerda l LEFT acho que não precisa do ' ' nem do if do D, pq para left sempre vai ter r ou u ou 
-		if(coluna -1 >= 0 && arrayDoLabirinto[linha][coluna -1] == ' ' || arrayDoLabirinto[linha][coluna -1] == 'r' || arrayDoLabirinto[linha][coluna -1] == 'u' || arrayDoLabirinto[linha][coluna -1] == 'd') {
-				arrayDoLabirinto[linha][coluna -1] = 'l';
-				return labirinto(arrayDoLabirinto, linha, coluna -1);
+		if(coluna -1 >= 0) {
+			if(arrayDoLabirinto[linha][coluna -1] == ' ' || arrayDoLabirinto[linha][coluna -1] == 'r' || arrayDoLabirinto[linha][coluna -1] == 'u' || arrayDoLabirinto[linha][coluna -1] == 'd') {
+					arrayDoLabirinto[linha][coluna -1] = 'l';
+					return labirinto(arrayDoLabirinto, linha, coluna -1);
+			}
 		}
 		
 		//Para baixo caso voltando de um caminho errado b DOWN
-		if(linha +1 < arrayDoLabirinto.length && arrayDoLabirinto[linha + 1][coluna] == 'u' || arrayDoLabirinto[linha + 1][coluna] == 'r') {
-				arrayDoLabirinto[linha + 1][coluna] = 'b';
-				return labirinto(arrayDoLabirinto, linha +1, coluna);			
+		if(linha +1 < arrayDoLabirinto.length) {
+			if(arrayDoLabirinto[linha + 1][coluna] == 'u' || arrayDoLabirinto[linha + 1][coluna] == 'r' || arrayDoLabirinto[linha + 1][coluna] == 'l') {
+					arrayDoLabirinto[linha + 1][coluna] = 'b';
+					return labirinto(arrayDoLabirinto, linha +1, coluna);			
+			}
 		}
 		
 		//se não entrou em nem um if é pq é falso	

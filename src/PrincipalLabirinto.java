@@ -14,8 +14,6 @@ public class PrincipalLabirinto {
 		boolean aux;
 		aux = Labirinto.labirinto(Labirinto.carregaLabirinto(nomeDoArquivo));
 		
-		//System.out.println(aux);
-		
 		//Criar arquivo com o resultado
 		Labirinto.imprimeArquivo(Labirinto.labirinto(Labirinto.carregaLabirinto(nomeDoArquivo)), Labirinto.carregaLabirinto(nomeDoArquivo));
 		
